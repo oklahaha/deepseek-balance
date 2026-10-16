@@ -1,0 +1,16 @@
+{
+  "name": "deepseek-balance",
+  "owner": {
+    "name": "oklahaha"
+  },
+  "metadata": {
+    "description": "deepseek-balance: a Claude Code mod showing your DeepSeek balance, spend and context window"
+  },
+  "plugins": [
+    {
+      "name": "deepseek-balance",
+      "source": "./",
+      "description": "DeepSeek credit in Claude Code: real balance with a gauge, today's spend, the model it mostly went to, and this key's own spend against a limit"
+    }
+  ]
+}

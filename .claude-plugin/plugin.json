@@ -1,0 +1,80 @@
+{
+  "name": "deepseek-balance",
+  "version": "0.1.0",
+  "description": "DeepSeek credit in Claude Code: real balance with a gauge, today's spend, the model it mostly went to, and this key's own spend against a limit",
+  "author": {
+    "name": "oklahaha"
+  },
+  "homepage": "https://github.com/oklahaha/deepseek-balance",
+  "repository": "https://github.com/oklahaha/deepseek-balance",
+  "keywords": [
+    "mod",
+    "deepseek",
+    "balance",
+    "statusline",
+    "context",
+    "usage"
+  ],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "apiKey": {
+      "type": "string",
+      "title": "DeepSeek API key",
+      "description": "Key used to read the balance. Empty: DEEPSEEK_API_KEY, else the ANTHROPIC_AUTH_TOKEN / ANTHROPIC_API_KEY Claude Code sends when ANTHROPIC_BASE_URL points at DeepSeek",
+      "sensitive": true,
+      "default": ""
+    },
+    "keyLimit": {
+      "type": "number",
+      "title": "This key's spend limit",
+      "description": "Spend limit for this key in the balance currency (0 = none). DeepSeek has no per-key limits, so the mod tracks it",
+      "default": 0
+    },
+    "keyLimitPeriod": {
+      "type": "string",
+      "title": "Key limit period",
+      "description": "What the key limit counts",
+      "options": [
+        "day",
+        "month",
+        "total"
+      ],
+      "default": "day"
+    },
+    "gaugeFull": {
+      "type": "number",
+      "title": "Gauge full at",
+      "description": "Balance that fills the gauge (0 = the balance right after your last top-up)",
+      "default": 0
+    },
+    "currency": {
+      "type": "string",
+      "title": "Currency",
+      "description": "Which balance to show when the account holds both",
+      "options": [
+        "auto",
+        "USD",
+        "CNY"
+      ],
+      "default": "auto"
+    },
+    "contextWindow": {
+      "type": "number",
+      "title": "Context window (tokens)",
+      "description": "Window the context gauge measures against (0 = what Claude Code reports for the model; DeepSeek V3.2 is 128000)",
+      "default": 0
+    },
+    "refreshSeconds": {
+      "type": "number",
+      "title": "Refresh every (seconds)",
+      "description": "How often the balance is read (at least 30)",
+      "default": 120
+    },
+    "apiBase": {
+      "type": "string",
+      "title": "DeepSeek API base",
+      "description": "Where /user/balance is read from",
+      "default": "https://api.deepseek.com"
+    }
+  }
+}
